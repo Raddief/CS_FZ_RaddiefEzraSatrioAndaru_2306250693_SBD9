@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+/* Tailwind directives - keep these */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom font for the body */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Ensures full viewport height for the root container */
+#root {
+  min-height: 100vh;
+}
