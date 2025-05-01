@@ -5,6 +5,8 @@ import axios from 'axios';
 import './App.css';
 import backgroundImage from './assets/anby0.png';
 
+const API_URL = import.meta.env.VITE_API_URL || 'https://sbd-express-raddiefezrasatrioandaru.c2b1zt.easypanel.host';
+
 const Login = ({ setIsLoggedIn }) => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -15,10 +17,11 @@ const Login = ({ setIsLoggedIn }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3000/user/login', formData);
+      const response = await axios.post(`${API_URL}/user/login`, formData);
       if (response.data.success) {
         setIsLoggedIn(true);
         localStorage.setItem('user', JSON.stringify(response.data.payload));
+        navigate('/products');
       }
     } catch (error) {
       console.error('Login error:', error);
@@ -133,7 +136,7 @@ const Register = ({ setIsLoggedIn }) => {
     e.preventDefault();
     try {
       const queryString = new URLSearchParams(formData).toString();
-      const response = await axios.post(`http://localhost:3000/user/register?${queryString}`);
+      const response = await axios.post(`${API_URL}/user/register?${queryString}`);
       if (response.status === 201) {
         alert('Registration successful! Please login.');
         navigate('/login');
@@ -267,7 +270,7 @@ const Products = ({ setIsLoggedIn }) => {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/item');
+      const response = await axios.get(`${API_URL}/item`);
       setProducts(response.data.payload || []);
     } catch (error) {
       console.error('Error fetching products:', error);
