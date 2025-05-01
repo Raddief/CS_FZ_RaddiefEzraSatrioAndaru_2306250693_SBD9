@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  backend:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - PG_CONNECTION_STRING=${PG_CONNECTION_STRING}
+      - CLOUDINARY_URL=${CLOUDINARY_URL}
+    volumes:
+      - .:/app
+      - /app/node_modules
