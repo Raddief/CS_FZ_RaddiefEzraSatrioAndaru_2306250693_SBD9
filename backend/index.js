@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 3000;
 
 // Enhanced CORS configuration
 const corsOptions = {
-  origin: ['https://cs9-raddiefezrasatrioandaru.vercel.app', 'http://localhost:5173', 'https://sbd-express-raddiefezrasatrioandaru.c2b1zt.easypanel.host/'],
+  origin: ['https://cs9-raddiefezrasatrioandaru.vercel.app', 'http://localhost:5173', 'https://sbd-express-raddiefezrasatrioandaru.c2b1zt.easypanel.host'],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
